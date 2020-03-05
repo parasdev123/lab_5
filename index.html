@@ -266,6 +266,13 @@
 
       const myHeading = document.querySelector(".header");
       myHeading.textContent = "Paras's List of Countries";
+
+      const content = document.querySelector(".content");
+      let ordList = document.createElement("ol");
+      ordList.className = "countries";
+      content.insertAdjacentElement("beforeend", ordList);
+
+      console.log(ordList);
     </script>
   </body>
 </html>
