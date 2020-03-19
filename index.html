@@ -285,18 +285,25 @@
           let randNum = Math.floor(Math.random() * countries.length);
           if (randNumArr.indexOf(randNum) === -1) randNumArr.push(randNum);
         }
-        // console.log(randNumArr);
+
+        // code gotten form W3school
+        randNumArr.sort(function(a, b) {
+          return a - b;
+        });
 
         let countryArr = [];
-        let notOnArr = [];
+        let notOnArr = [...countries];
+        // console.log(notOnArr);
 
         for (i = 0; i < 25; i++) {
           let randNum = randNumArr[i];
           let countryLb = JSON.stringify(countries[randNum]["code"]);
           let countryName = JSON.stringify(countries[randNum]["name"]);
           countryArr.push({ name: countryName, code: countryLb });
+          notOnArr.splice([randNum], 1);
           // console.log(countryLb);
         }
+        // console.log(notOnArr);
         // console.log(countryArr);
         let output = " ";
         for (j = 0; j < countryArr.length; j++) {
@@ -307,7 +314,8 @@
             countryArr[j]["name"].replace(/\"/g, "");
           orderedList.innerHTML += output;
         }
-        // console.log(ordList);
+        console.log("Unselected Countries: ");
+        console.log(notOnArr);
       }
     </script>
   </body>
