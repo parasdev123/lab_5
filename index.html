@@ -17,12 +17,6 @@
       </div>
     </div>
     <script>
-      const pageHeading = document.querySelector(".header");
-      pageHeading.textContent = "Paras's List of Countries";
-
-      const pageTitle = document.querySelector("title");
-      pageTitle.textContent = pageHeading.textContent;
-
       const countries = [
         { name: "Afghanistan", code: "AF" },
         { name: "Åland Islands", code: "AX" },
@@ -270,6 +264,12 @@
       ];
       console.log("List of countries in the world", countries);
 
+      const pageHeading = document.querySelector(".header");
+      pageHeading.textContent = "Paras's List of Countries";
+
+      const pageTitle = document.querySelector("title");
+      pageTitle.textContent = pageHeading.textContent;
+
       function onClick() {
         const orderedList = document.createElement("ol");
         orderedList.className = "countries";
@@ -285,6 +285,15 @@
         // console.log(randNumArr);
 
         let countryArr = [];
+        let notOnArr = [];
+
+        for (i = 0; i < 25; i++) {
+          let randNum = randNumArr[i];
+          let countryLb = JSON.stringify(countries[randNum]["code"]);
+          let countryName = JSON.stringify(countries[randNum]["name"]);
+          countryArr.push({ name: countryName, code: countryLb });
+        }
+        // console.log(countryArr);
       }
     </script>
   </body>
