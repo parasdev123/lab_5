@@ -9,14 +9,20 @@
     <div class="container">
       <div class="wrapper">
         <div class="header">Test JSON page</div>
-        <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
-        <button class="activate">Click me to replace list entries</button>
+        <button class="activate" onclick="onClick()">
+          Click me to replace list entries
+        </button>
         <div class="content"></div>
         <div class="footer"></div>
       </div>
     </div>
     <script>
-      /* N.B. - For your lab, use the variable "countries" now available on the window space */
+      const pageHeading = document.querySelector(".header");
+      pageHeading.textContent = "Paras's List of Countries";
+
+      const pageTitle = document.querySelector("title");
+      pageTitle.textContent = pageHeading.textContent;
+
       const countries = [
         { name: "Afghanistan", code: "AF" },
         { name: "Åland Islands", code: "AX" },
@@ -264,15 +270,22 @@
       ];
       console.log("List of countries in the world", countries);
 
-      const myHeading = document.querySelector(".header");
-      myHeading.textContent = "Paras's List of Countries";
+      function onClick() {
+        const orderedList = document.createElement("ol");
+        orderedList.className = "countries";
+        const content = document.querySelector(".content");
+        content.appendChild(orderedList);
+        // console.log("On click works");
 
-      const content = document.querySelector(".content");
-      let ordList = document.createElement("ol");
-      ordList.className = "countries";
-      content.insertAdjacentElement("beforeend", ordList);
+        let randNumArr = [];
+        while (randNumArr.length < 25) {
+          let randNum = Math.floor(Math.random() * countries.length);
+          if (randNumArr.indexOf(randNum) === -1) randNumArr.push(randNum);
+        }
+        // console.log(randNumArr);
 
-      console.log(ordList);
+        let countryArr = [];
+      }
     </script>
   </body>
 </html>
