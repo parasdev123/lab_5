@@ -270,14 +270,13 @@
       const pageTitle = document.querySelector("title");
       pageTitle.textContent = pageHeading.textContent;
 
-      const ordList = document.getElementsByClassName("countries");
+      const orderedList = document.createElement("ol");
+      orderedList.className = "countries";
+      const content = document.querySelector(".content");
+      content.appendChild(orderedList);
 
       function onClick() {
-        const orderedList = document.createElement("ol");
-        orderedList.className = "countries";
-        const content = document.querySelector(".content");
-        content.appendChild(orderedList);
-
+        orderedList.innerHTML = "";
         // console.log("On click works");
 
         // This code is from stackOverFlow but edited to fit this context https://stackoverflow.com/questions/2380019/generate-unique-random-numbers-between-1-and-100
@@ -306,7 +305,7 @@
             countryArr[j]["code"].replace(/\"/g, "") +
             "</strong> " +
             countryArr[j]["name"].replace(/\"/g, "");
-          ordList[0].innerHTML += output;
+          orderedList.innerHTML += output;
         }
         // console.log(ordList);
       }
