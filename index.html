@@ -300,7 +300,7 @@
           let countryLb = JSON.stringify(countries[randNum]["code"]);
           let countryName = JSON.stringify(countries[randNum]["name"]);
           countryArr.push({ name: countryName, code: countryLb });
-          notOnArr.splice([randNum], 1);
+          notOnArr.splice([randNumArr][i], 1);
           // console.log(countryLb);
         }
         // console.log(notOnArr);
